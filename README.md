@@ -1,0 +1,1 @@
+# gofr-template-rendering-example

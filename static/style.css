@@ -1,0 +1,38 @@
+body {
+    font-family: system-ui, sans-serif;
+    background-color: #f3f4f6;
+    color: #111827;
+    margin: 0;
+    padding: 2rem;
+}
+
+#content {
+    max-width: 800px;
+    margin: auto;
+}
+
+a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+a:hover {
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+form {
+    margin-bottom: 2rem;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Go Articles from Dev.to</title>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        function updatePage(delta) {
+            const urlParams = new URLSearchParams(window.location.search);
+            let page = parseInt(urlParams.get('page') || '{{.Page}}');
+            let tag = urlParams.get('tag') || '{{.Tag}}';
+
+            page = Math.max(1, page + delta);
+            const newUrl = `/dev-articles?tag=${tag}&page=${page}`;
+            window.location.href = newUrl;
+        }
+    </script>
+
+</head>
+
+<body>
+
+<div id="content">
+    <h1>📰 Latest Go Articles on Dev.to</h1>
+    <form method="GET" action="/dev-articles">
+        <input type="text" name="tag" placeholder="Tag (e.g. go)" value="{{.Tag}}" />
+        <button type="submit">Search</button>
+    </form>
+
+    <ul>
+        {{range .Articles}}
+        <li>
+            <h2><a href="{{.URL}}" target="_blank">{{.Title}}</a></h2>
+            <p>{{.Description}}</p>
+        </li>
+        {{end}}
+    </ul>
+
+    <div style="text-align: center; margin-top: 2rem;">
+        {{if gt .Page 1}}
+        <button onclick="updatePage(-1)">⬅️ Prev</button>
+        {{else}}
+        <button disabled>⬅️ Prev</button>
+        {{end}}
+
+        <span style="margin: 0 1rem;">Page {{.Page}}</span>
+
+        <button onclick="updatePage(1)">Next ➡️</button>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
